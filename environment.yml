@@ -7,6 +7,7 @@ dependencies:
   - pandas
   - matplotlib
   - streamlit
+  - pip
   - pip:
     - mortgage
 prefix: /Users/rj/miniforge3/envs/streamlit-demo
