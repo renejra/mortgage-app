@@ -1,0 +1,5 @@
+name: streamlit-demo
+channels:
+  - defaults
+  - conda-forge
+prefix: /Users/rj/miniforge3/envs/streamlit-demo
