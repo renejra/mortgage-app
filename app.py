@@ -1,13 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
 import streamlit as st
 import pandas as pd
 import mortgage
-import matplotlib.pyplot as plt
-import plotly.graph_objects as go
-import datetime
 
 st.set_page_config(page_title="The Mortgage App",layout='wide')
 

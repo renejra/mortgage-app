@@ -2,4 +2,11 @@ name: streamlit-demo
 channels:
   - defaults
   - conda-forge
+dependencies:
+  - python
+  - pandas
+  - matplotlib
+  - streamlit
+  - pip:
+    - mortgage
 prefix: /Users/rj/miniforge3/envs/streamlit-demo
