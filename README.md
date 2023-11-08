@@ -2,7 +2,7 @@
 Streamlit app to calculate stats and monthly payments of a loan
 
 ## Web usage
-You can just visit the [app's url](https://renejra-portfolio-opt-portfolio-opt-omsk4q.streamlit.app/)
+You can just visit the [app's url](https://renejra-mortgage-app-app-568qql.streamlit.app/)
 
 ## Local installation
 - Create a new conda environment and activate it
