@@ -8,17 +8,12 @@ import mortgage
 st.set_page_config(page_title="The Mortgage App",layout='wide')
 
 # Sidebar messages and menus
-st.sidebar.header('The Mortgage App')
-st.sidebar.write('This app will help you estimate your payments when taking a credit. Start by entering your loan details below.')
-
-principal = st.sidebar.number_input('Debt', value=100000)
+st.sidebar.subheader('App Configurations')
+principal = st.sidebar.number_input('Loan amount', value=100000)
 interest = st.sidebar.number_input('Interest rate % (APR)', value=3.0)/100
 term = st.sidebar.number_input('Term in years', value=10)
 rent = st.sidebar.number_input('Monthly rent or income from asset', value=0)
 start = st.sidebar.date_input('Start Date')
-
-st.sidebar.write('Note: Please use app only as reference')
-st.sidebar.markdown('Author: [**Rene Rivero**](https://www.linkedin.com/in/renejra/)')
 
 # Working out the data
 loan = mortgage.Loan(principal=principal, interest=interest, term=term)
@@ -34,7 +29,16 @@ am['equity'] = am.principal.expanding().sum()
 am.rename(columns={'balance':'debt', 'total_interest':'interest_paid'}, inplace=True)
 
 # Graph results
-st.header('Loan Development Summary')
+st.header('Mortgage App')
+st.write('This app, based on the [mortgage library](https://pypi.org/project/mortgage/) will help you estimate your payment plan when taking a credit or loan.')
+st.write('Start by entering your loan details on the left banner.')
+st.markdown('Author: [**Rene Rivero**](https://www.linkedin.com/in/renejra/)')
+st.info("By using this app, you acknowledge to:\n" + 
+           "- Use and interpret the app's results only as a reference, as it is only made for educational purposes.\n"+
+           "- You understand that this app or the 3rd party libraries it uses, are NOT actively maintained by its author.\n"+
+           "- Therefore, the author will NOT be responsible for accuracy of results provided, nor for decisions derived from its use.\n"+
+           "Please inform yourself thoroughly before taking important financial decisions and most importantly, DO YOUR OWN RESEARCH.")
+st.header("Loan development over time")
 am['date'] = pd.date_range(start, periods=len(am), freq="M")
 am.set_index('date', inplace=True)
 cols = st.multiselect('Select properties to graph:', 
@@ -64,5 +68,5 @@ with col2:
         st.metric('Cumulated Cashflow:', '{}{:>11}'.format(loan._currency, am["cum_cashflow"].iloc[-1]))
         st.metric('Income to principal:','{:>11} %'.format((am.income[-1]- am.income[0])*100/principal))
 
-st.subheader('Amortization plan')
+st.header('Amortization plan')
 st.write(am.loc[:, am.columns != 'cashflow'])

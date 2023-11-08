@@ -1,9 +1,10 @@
 # mortgage-app
 Streamlit app to calculate stats and monthly payments of a loan
 
-## Installation
-- Create a new conda environment and activate it
-- Install `requirements.txt` and streamlit
+## Web usage
+You can just visit the [app's url](https://renejra-portfolio-opt-portfolio-opt-omsk4q.streamlit.app/)
 
-## Run
-You can run the app by entering `streamlit run app.py` on a bash terminal
+## Local installation
+- Create a new conda environment and activate it
+- Install dependencies from `requirements.txt`
+- Run the app by entering `streamlit run app.py` on a terminal
